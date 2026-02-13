@@ -4,9 +4,10 @@ local w = vim.w
 local a = vim.api
 local wo = vim.wo
 local fn = vim.fn
+local uv = vim.uv
 local hl = a.nvim_set_hl
 local au = a.nvim_create_autocmd
-local timer = vim.loop.new_timer()
+local timer = uv.new_timer()
 
 local DEFAULT_OPTIONS = {
   cursorline = {
@@ -32,7 +33,7 @@ local function matchadd()
   end
   w.cursorword = cursorword
   if w.cursorword_id then
-    vim.call("matchdelete", w.cursorword_id)
+    fn.matchdelete(w.cursorword_id)
     w.cursorword_id = nil
   end
   if
