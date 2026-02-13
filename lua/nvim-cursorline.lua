@@ -86,12 +86,7 @@ function M.setup(options)
   end
 
   if M.options.cursorword.enable then
-    au("VimEnter", {
-      callback = function()
-        hl(0, "CursorWord", M.options.cursorword.hl)
-        matchadd()
-      end,
-    })
+    hl(0, "CursorWord", M.options.cursorword.hl)
     au({ "CursorMoved", "CursorMovedI" }, {
       callback = function()
         matchadd()
