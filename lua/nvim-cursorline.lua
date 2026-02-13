@@ -19,6 +19,7 @@ local DEFAULT_OPTIONS = {
     enable = true,
     min_length = 3,
     hl = { underline = true },
+    insert_highlighting = true,
   },
 }
 
@@ -92,11 +93,18 @@ function M.setup(options)
         matchadd()
       end,
     })
-    au({ "CursorMoved", "CursorMovedI" }, {
+    au({ "CursorMoved" }, {
       callback = function()
         matchadd()
       end,
     })
+    if M.options.cursorword.insert_highlighting then
+      au({ "CursorMovedI" }, {
+        callback = function()
+          matchadd()
+        end,
+      })
+    end
   end
 end
 
