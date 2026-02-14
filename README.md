@@ -18,6 +18,8 @@ Install with your favorite plugin manager.
 
 ```lua
 require('nvim-cursorline').setup {
+  disable_filetypes = {},
+  disable_buftypes = {},
   cursorline = {
     enable = true,
     timeout = 1000,
