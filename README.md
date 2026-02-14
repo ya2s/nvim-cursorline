@@ -14,7 +14,7 @@ https://user-images.githubusercontent.com/42740055/163586272-17560f83-9195-4cb4-
 
 Install with your favorite plugin manager.
 
-## Usage
+## Default settings
 
 ```lua
 require('nvim-cursorline').setup {
@@ -32,6 +32,39 @@ require('nvim-cursorline').setup {
   }
 }
 ```
+
+## Options for block highlighting
+
+```lua
+require('nvim-cursorline').setup {
+  cursorline = {
+    enable = false,
+  },
+  cursorword = {
+    enable = true,
+    min_length = 1,
+    hl = {
+      underline = false,
+      fg = "#c0caf5",
+      bg = "#565f89",
+      sp = nil,
+      blend = 0,
+      bold = false,
+      standout = false,
+      underline = false,
+      undercurl = false,
+      underdouble = false,
+      underdotted = false,
+      underdashed = false,
+      strikethrough = false,
+      italic = false,
+      reverse = false,
+      nocombine = false,
+    },
+  }
+}
+```
+Most of the cursorword options are shown above. See a complete list of properties that can be set for `val` in the Neovim documentation: https://neovim.io/doc/user/api.html#nvim_set_hl().
 
 ## Acknowledgments
 
