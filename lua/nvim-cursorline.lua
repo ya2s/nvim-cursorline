@@ -27,7 +27,7 @@ local DEFAULT_OPTIONS = {
 
 local function clear_cursorword_match()
   if w.cursorword_id then
-    fn.matchdelete(w.cursorword_id)
+    pcall(vim.call, "matchdelete", w.cursorword_id)
     w.cursorword_id = nil
   end
 end
